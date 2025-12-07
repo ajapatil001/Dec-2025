@@ -1,29 +1,30 @@
 name: My Awesome App
-on:
+on: 
   push:
     branches:
-        - main
-  workflow_dispatch:      
+      - main
+
 
 jobs:
-  Unit-Testing:
-   name: Unit Testing
-   runs-on: ubuntu-latest
-        
-   steps:
-     - name: Checkout Repository
-       uses: actions/checkout@v4
-
-     - name: Set up Node.js
-       uses: actions/setup-node@v3
-       with:
-        node-version: '20'
-                    
-     - name: Install Dependencies
-       run: npm install
-              
-     - name: Execute Unit Tests
-       run: npm test
+  unit-testing:
+    name: Unit Testing
+    runs-on: ubuntu-latest
 
 
-              
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+
+      - name: Install Dependencies
+        run: npm install
+
+
+      - name: Execute Unit Tests
+        run: npm test
